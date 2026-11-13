@@ -107,6 +107,9 @@ Ikuti langkah-langkah berikut untuk mengoperasikan proyek di lingkungan lokal:
 
 ## Tim Pengembang (Kelompok 5)
 
-* Megan Elfreda Arkananta
-* Ferdian
-* Seluruh Anggota Tim Pengembang Kelompok 5
+| No | Nama | NPM |
+| :---: | :--- | :---: |
+| 1 | Megan Elfreda Arkananta | 26082010005 |
+| 2 | Fauzan Wilandika Mardiartha Pratama | 26082010037 |
+| 3 | Real Natha Kusumawijaya | 26082010035 |
+| 4 | Ferdian | 24082010213 |

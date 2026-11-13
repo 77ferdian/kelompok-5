@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title', 'Daftar Booking - RentWheels')
+@section('title', 'Daftar Booking - Sistem Booking Kendaraan')
 
 @section('content')
 
@@ -37,13 +37,6 @@
         @endif
 
         {{-- STAT CARDS --}}
-        @php
-            $total     = $bookings->count();
-            $menunggu  = $bookings->where('status','menunggu')->count();
-            $disetujui = $bookings->where('status','disetujui')->count();
-            $selesai   = $bookings->where('status','selesai')->count();
-        @endphp
-
         <div class="row g-3 mb-4">
             <div class="col-6 col-md-3">
                 <div class="stat-card">
@@ -85,7 +78,7 @@
 
         {{-- TABLE CARD --}}
         <div class="table-card">
-            <div class="table-card-header">
+            <div class="table-card-header d-flex flex-wrap justify-content-between align-items-center gap-3">
                 <div>
                     <div class="table-card-title">
                         <span class="table-heading-icon">
@@ -95,10 +88,29 @@
                     </div>
                     <p class="table-card-subtitle">Informasi penyewa, kendaraan, dan status pesanan.</p>
                 </div>
-                <span class="table-count">
-                    <i class="bi bi-collection"></i>
-                    <strong>{{ $bookings->count() }}</strong> data
-                </span>
+                <div class="d-flex align-items-center gap-2">
+                    <form action="{{ route('bookings.index') }}" method="GET" class="d-flex align-items-center gap-2 m-0">
+                        <label for="filterStatus" class="d-none d-sm-inline" style="font-size:0.85rem;font-weight:600;color:var(--text-secondary);white-space:nowrap;">
+                            <i class="bi bi-funnel-fill me-1"></i>Filter Status:
+                        </label>
+                        <select id="filterStatus" name="status" class="form-select form-select-sm" onchange="this.form.submit()" style="border-radius:8px;font-size:0.85rem;padding:6px 32px 6px 12px;border:1.5px solid #cbd5e1;font-weight:500;min-width:140px;cursor:pointer;">
+                            <option value="">Semua Status</option>
+                            <option value="menunggu" {{ request('status') == 'menunggu' ? 'selected' : '' }}>Menunggu</option>
+                            <option value="disetujui" {{ request('status') == 'disetujui' ? 'selected' : '' }}>Disetujui</option>
+                            <option value="selesai" {{ request('status') == 'selesai' ? 'selected' : '' }}>Selesai</option>
+                            <option value="batal" {{ request('status') == 'batal' ? 'selected' : '' }}>Batal</option>
+                        </select>
+                        @if(request('status'))
+                            <a href="{{ route('bookings.index') }}" class="btn btn-sm btn-outline-secondary" style="border-radius:8px;" title="Reset Filter">
+                                <i class="bi bi-x-circle"></i>
+                            </a>
+                        @endif
+                    </form>
+                    <span class="table-count ms-2">
+                        <i class="bi bi-collection"></i>
+                        <strong>{{ $bookings->count() }}</strong> data
+                    </span>
+                </div>
             </div>
 
             <div class="table-responsive">

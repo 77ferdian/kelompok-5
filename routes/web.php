@@ -11,6 +11,7 @@ Route::get('/', function () {
 // Kumpulan Route Sistem Booking Sewa Kendaraan
 Route::prefix('bookings')->name('bookings.')->group(function () {
     Route::get('/', [BookingController::class, 'index'])->name('index');
+    Route::get('/analytics', [BookingController::class, 'analytics'])->name('analytics');
     Route::get('/create', [BookingController::class, 'create'])->name('create');
     Route::post('/', [BookingController::class, 'store'])->name('store');
     Route::get('/{booking}/edit', [BookingController::class, 'edit'])->name('edit');

@@ -3,7 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@yield('title', 'RentWheels - Sistem Booking Kendaraan')</title>
+    <title>@yield('title', 'Sistem Booking Kendaraan')</title>
+
+    <!-- Web Favicon -->
+    <link rel="icon" type="image/svg+xml" href="{{ asset('favicon.svg') }}">
 
     <!-- Bootstrap 5 -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -46,6 +49,9 @@
             background: linear-gradient(110deg, #111b35 0%, #182b55 58%, #315ee8 100%);
             box-shadow: 0 8px 28px rgba(17, 27, 53, 0.18);
             padding: 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
         }
 
         .navbar-brand-custom {
@@ -542,23 +548,33 @@
             font-size: 0.85rem;
         }
 
-        /* ── RESPONSIVE ── */
+        /* ── RESPONSIVE TWEAKS ── */
+        @media (max-width: 768px) {
+            .navbar-brand-custom { font-size: 1.05rem; padding: 10px 0; }
+            .navbar-brand-custom .brand-icon { width: 34px; height: 34px; font-size: 1rem; }
+            .page-hero { padding: 24px 0 44px; }
+            .page-hero .hero-title { font-size: 1.45rem; }
+            .stat-card { padding: 14px 16px; gap: 12px; }
+            .stat-value { font-size: 1.4rem; }
+            .table-card-header { padding: 16px; }
+        }
+
         @media (max-width: 576px) {
-            .page-hero { padding: 30px 0 50px; }
-            .page-hero .hero-title { font-size: 1.4rem; }
-            .table-responsive { overflow-x: auto; }
-            .navbar-brand-custom { padding: 12px 0; font-size: 1.1rem; }
-            .navbar-brand-custom .brand-sub { font-size: 0.64rem; }
-            .navbar-main .container-lg { padding-inline: 16px; }
-            .main-content { padding-bottom: 36px; }
-            .stat-card { gap: 11px; padding: 16px 14px; border-radius: 14px; }
-            .stat-icon { width: 42px; height: 42px; border-radius: 12px; font-size: 1.15rem; }
-            .stat-value { font-size: 1.35rem; }
-            .table-card-header { padding: 18px; }
-            .form-card-header, .form-card-body { padding: 20px; }
-            .form-card-header h4 { font-size: 1rem; }
-            .table-card-subtitle { margin-left: 0; }
-            .footer-custom { padding: 16px 20px; line-height: 1.6; }
+            .page-hero { padding: 20px 0 38px; }
+            .page-hero .hero-title { font-size: 1.25rem; }
+            .table-responsive { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+            .navbar-brand-custom { padding: 10px 0; font-size: 0.95rem; }
+            .navbar-brand-custom .brand-sub { font-size: 0.62rem; }
+            .navbar-main .container-lg { padding-inline: 14px; }
+            .main-content { padding-bottom: 30px; margin-top: -24px; }
+            .stat-card { gap: 10px; padding: 12px 14px; border-radius: 12px; }
+            .stat-icon { width: 38px; height: 38px; border-radius: 10px; font-size: 1.05rem; }
+            .stat-value { font-size: 1.25rem; }
+            .table-card-header { padding: 14px; }
+            .form-card-header, .form-card-body { padding: 16px; }
+            .form-card-header h4 { font-size: 0.95rem; }
+            .table-card-subtitle { margin-left: 0; font-size: 0.8rem; }
+            .footer-custom { padding: 14px 16px; font-size: 0.78rem; line-height: 1.5; }
         }
 
         @media (prefers-reduced-motion: reduce) {
@@ -581,8 +597,8 @@
                     <i class="bi bi-car-front-fill"></i>
                 </div>
                 <div>
-                    RentWheels
-                    <span class="brand-sub">Sistem Booking Kendaraan</span>
+                    Sistem Booking Kendaraan
+                    <span class="brand-sub">Layanan Sewa Mobil & Motor</span>
                 </div>
             </a>
 
@@ -593,15 +609,37 @@
                     </a>
                 </div>
                 <div class="nav-item-custom">
+                    <a href="{{ route('bookings.analytics') }}" class="{{ request()->routeIs('bookings.analytics') ? 'active' : '' }}">
+                        <i class="bi bi-bar-chart-line-fill"></i> Grafik & Statistik
+                    </a>
+                </div>
+                <div class="nav-item-custom">
                     <a href="{{ route('bookings.create') }}" class="{{ request()->routeIs('bookings.create') ? 'active' : '' }}">
                         <i class="bi bi-plus-circle-fill"></i> Tambah Booking
                     </a>
                 </div>
             </div>
 
-            <div class="d-flex align-items-center gap-3 pe-3">
-                <div class="avatar-initials d-none d-sm-flex">A</div>
+            <!-- Hamburger Button for Mobile -->
+            <button class="navbar-toggler-custom d-md-none border-0 bg-transparent text-white fs-3 p-2" type="button" data-bs-toggle="collapse" data-bs-target="#mobileMenu" aria-controls="mobileMenu" aria-expanded="false" aria-label="Toggle navigation">
+                <i class="bi bi-list"></i>
+            </button>
+        </div>
+
+        <!-- Mobile Collapsible Menu -->
+        <div class="collapse d-md-none" id="mobileMenu" style="background: rgba(17, 27, 53, 0.98); border-top: 1px solid rgba(255,255,255,0.1);">
+            <div class="container-lg py-3 d-flex flex-column gap-2">
+                <a href="{{ route('bookings.index') }}" class="nav-link text-white py-2 px-3 rounded-3 d-flex align-items-center gap-2 {{ request()->routeIs('bookings.index') ? 'bg-primary' : '' }}">
+                    <i class="bi bi-grid-fill"></i> Dashboard
+                </a>
+                <a href="{{ route('bookings.analytics') }}" class="nav-link text-white py-2 px-3 rounded-3 d-flex align-items-center gap-2 {{ request()->routeIs('bookings.analytics') ? 'bg-primary' : '' }}">
+                    <i class="bi bi-bar-chart-line-fill"></i> Grafik & Statistik
+                </a>
+                <a href="{{ route('bookings.create') }}" class="nav-link text-white py-2 px-3 rounded-3 d-flex align-items-center gap-2 {{ request()->routeIs('bookings.create') ? 'bg-primary' : '' }}">
+                    <i class="bi bi-plus-circle-fill"></i> Tambah Booking
+                </a>
             </div>
+        </div>
         </div>
     </nav>
 
@@ -610,7 +648,7 @@
 
     <!-- FOOTER -->
     <footer class="footer-custom mt-auto">
-        &copy; {{ date('Y') }} RentWheels &mdash; Kelompok 5 &bull; Sistem Informasi Sewa Kendaraan
+        &copy; {{ date('Y') }} Sistem Booking Kendaraan &mdash; Kelompok 5 &bull; Sistem Informasi Sewa Kendaraan
     </footer>
 
     <!-- Bootstrap JS -->

@@ -1,0 +1,57 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+  <defs>
+    <!-- Background Gradient -->
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#1e293b"/>
+      <stop offset="50%" stop-color="#1e3a8a"/>
+      <stop offset="100%" stop-color="#315ee8"/>
+    </linearGradient>
+
+    <!-- Metallic/Accent Gradient -->
+    <linearGradient id="carGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#ffffff"/>
+      <stop offset="100%" stop-color="#cbd5e1"/>
+    </linearGradient>
+
+    <!-- Glow/Neon Accent -->
+    <linearGradient id="neonGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#38bdf8"/>
+      <stop offset="100%" stop-color="#818cf8"/>
+    </linearGradient>
+
+    <filter id="shadow" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="8" stdDeviation="12" flood-color="#000000" flood-opacity="0.35"/>
+    </filter>
+  </defs>
+
+  <!-- Rounded App Icon Background -->
+  <rect width="512" height="512" rx="112" fill="url(#bgGrad)"/>
+  <rect width="504" height="504" x="4" y="4" rx="108" fill="none" stroke="rgba(255,255,255,0.15)" stroke-width="6"/>
+
+  <g filter="url(#shadow)">
+    <!-- Sleek Modern Car Silhouette (Front View) -->
+    <!-- Car Roof & Windshield -->
+    <path d="M152 236 L184 156 C190 142 204 132 220 132 L292 132 C308 132 322 142 328 156 L360 236 Z" 
+          fill="url(#neonGrad)" opacity="0.9"/>
+    
+    <path d="M168 230 L194 164 C198 154 207 148 218 148 L294 148 C305 148 314 154 318 164 L344 230 Z" 
+          fill="#0f172a"/>
+
+    <!-- Car Body -->
+    <path d="M124 236 C102 236 86 254 90 276 L104 344 C108 360 122 372 138 372 L150 372 C162 372 172 362 172 350 L172 338 L340 338 L340 350 C340 362 350 372 362 372 L374 372 C390 372 404 360 408 344 L422 276 C426 254 410 236 388 236 Z" 
+          fill="url(#carGrad)"/>
+
+    <!-- Headlights (Left & Right Glowing) -->
+    <polygon points="126,270 180,270 172,292 132,292" fill="#38bdf8"/>
+    <polygon points="386,270 332,270 340,292 380,292" fill="#38bdf8"/>
+
+    <!-- Front Grille -->
+    <rect x="204" y="278" width="104" height="28" rx="8" fill="#1e293b"/>
+    <line x1="220" y1="292" x2="292" y2="292" stroke="#64748b" stroke-width="3" stroke-linecap="round"/>
+
+    <!-- Key / Rental Badge Accent at Bottom Right -->
+    <circle cx="376" cy="376" r="64" fill="#3b82f6" stroke="#ffffff" stroke-width="8"/>
+    <!-- Checkmark / Key shape inside badge -->
+    <path d="M352 376 L368 392 L402 358" fill="none" stroke="#ffffff" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
+  </g>
+</svg>

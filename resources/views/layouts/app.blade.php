@@ -6,8 +6,9 @@
     <title>@yield('title', 'Sistem Booking Kendaraan')</title>
 
     <!-- Web Favicon -->
-    <link rel="icon" type="image/svg+xml" href="{{ asset('favicon.svg') }}?v=2">
-    <link rel="shortcut icon" href="{{ asset('favicon.svg') }}?v=2">
+    <link rel="icon" type="image/x-icon" href="/favicon.ico?v=3">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon.png?v=3">
+    <link rel="shortcut icon" href="/favicon.ico?v=3">
 
     <!-- Bootstrap 5 -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">

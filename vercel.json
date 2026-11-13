@@ -16,6 +16,10 @@
       "dest": "/public/favicon.ico"
     },
     {
+      "src": "/favicon.svg",
+      "dest": "/public/favicon.svg"
+    },
+    {
       "src": "/robots.txt",
       "dest": "/public/robots.txt"
     },
@@ -35,6 +39,7 @@
     "APP_SERVICES_CACHE": "/tmp/services.php",
     "VIEW_COMPILED_PATH": "/tmp",
     "CACHE_STORE": "array",
-    "SESSION_DRIVER": "cookie"
+    "SESSION_DRIVER": "cookie",
+    "DB_CONNECTION": "sqlite"
   }
 }

@@ -1,108 +1,112 @@
-# 🚗 Sistem Booking Kendaraan (Kelompok 5)
+# Sistem Booking Kendaraan
 
-[![Deployment Status](https://img.shields.io/badge/Deployment-Live%20on%20Vercel-success?style=for-the-badge&logo=vercel)](https://kelompok-5-noss-ecru.vercel.app/bookings)
+[![Deployment Status](https://img.shields.io/badge/Deployment-Live%20on%20Vercel-success?style=for-the-badge&logo=vercel)](https://sistem-booking-kendaraan.vercel.app/bookings)
 [![Laravel](https://img.shields.io/badge/Laravel-11%2F12-red?style=for-the-badge&logo=laravel)](https://laravel.com)
 [![PHP](https://img.shields.io/badge/PHP-8.2%2B-blue?style=for-the-badge&logo=php)](https://php.net)
 
-> **Website Live / Demo Online:**  
-> 🔗 **[https://kelompok-5-noss-ecru.vercel.app/bookings](https://kelompok-5-noss-ecru.vercel.app/bookings)**
+Tautan Aplikasi Live:  
+[https://sistem-booking-kendaraan.vercel.app/bookings](https://sistem-booking-kendaraan.vercel.app/bookings)
 
 ---
 
-## 📸 Preview Tampilan Aplikasi
+## Pratinjau Antarmuka
 
-![Preview Sistem Booking Kendaraan](preview.jpg)
-
----
-
-## 📌 Deskripsi Sistem
-
-**Sistem Booking Jasa Sewa Mobil & Motor** adalah aplikasi berbasis web yang dibangun menggunakan *framework* **Laravel** untuk mengelola transaksi pemesanan rental kendaraan secara terstruktur, modern, cepat, dan efisien.
-
-Aplikasi ini dikembangkan oleh **Kelompok 5** untuk memenuhi penugasan final project mentoring web development.
+![Pratinjau Antarmuka Sistem Booking Kendaraan](preview.jpg)
 
 ---
 
-## ✨ Fitur Utama
+## Deskripsi Proyek
 
-Aplikasi ini menyediakan fungsionalitas manajemen pemesanan secara penuh:
+Sistem Booking Kendaraan merupakan aplikasi berbasis web yang dirancang menggunakan framework Laravel untuk menyederhanakan proses manajemen operasional persewaan kendaraan roda dua (motor) dan roda empat (mobil). Sistem ini memfasilitasi pencatatan pemesanan, pemantauan status transaksi sewa secara langsung, serta visualisasi data performa usaha secara ringkas dan terstruktur.
 
-* 📊 **Dashboard & Statistik Bisnis**: Ringkasan data KPI serta grafik visual (Chart.js) untuk memantau tren booking, perbandingan armada (Mobil vs Motor), dan rasio status pesanan.
-* 📋 **Daftar Pemesanan (Read)**: Menampilkan seluruh data transaksi booking dalam tabel interaktif dengan indikator status berikon vektor modern.
-* 🔍 **Filter Status Real-time**: Memfilter daftar sewa berdasarkan status (`Menunggu`, `Disetujui`, `Selesai`, `Batal`).
-* ➕ **Formulir Tambah Booking (Create)**: Input pemesanan kendaraan baru dengan validasi data terintegrasi, disusun dalam tata letak responsif 2 kolom tanpa perlu scroll.
-* ✏️ **Edit Data & Status (Update)**: Memperbarui rincian pelanggan, jenis kendaraan, dan memperbarui status operasional.
-* 🗑️ **Hapus Pemesanan (Delete)**: Menghapus rekaman transaksi sewa dari sistem.
-* 📱 **Desain Fleksibel & Responsif**: Tampilan nyaman diakses di smartphone, tablet, maupun layar desktop monitor (lengkap dengan mobile hamburger menu dan sticky navbar).
+Proyek ini disusun oleh Kelompok 5 sebagai bagian dari penyelesaian penugasan akhir program pelatihan dan kolaborasi pengembangan web.
 
 ---
 
-## 🛠️ Spesifikasi Teknologi
+## Fitur Utama
 
-| Komponen | Teknologi / Alat |
+Sistem ini mencakup serangkaian fungsionalitas utama yang terintegrasi:
+
+* **Dashboard Analitik dan Statistik**: Visualisasi metrik kinerja utama (Key Performance Indicators) dan grafik dinamis berbasis Chart.js yang memuat data tren pemesanan bulanan, peringkat kendaraan terfavorit, rasio kategori kendaraan, serta ringkasan status operasional.
+* **Manajemen Data Pemesanan (CRUD)**:
+  * **Pencatatan Booking Baru**: Formulir entri pemesanan yang dilengkapi validasi data terpadu dan tata letak grid dua kolom yang teroptimasi tanpa memerlukan pengguliran berlebih.
+  * **Daftar Transaksi Terstruktur**: Penyajian data pemesanan secara rapi dengan indikator status berbasis visual vektor.
+  * **Pembaruan Data & Status**: Fasilitas pengubahan rincian sewa dan pembaruan alur status pemesanan (Menunggu, Disetujui, Selesai, atau Batal).
+  * **Penghapusan Data**: Mekanisme pembatalan dan penghapusan data transaksi yang tidak lagi relevan.
+* **Filter Status Real-Time**: Fasilitas penyaringan instan untuk memilah transaksi berdasarkan tahapan status operasional tertentu.
+* **Antarmuka Responsif**: Desain tata letak yang beradaptasi secara optimal pada seluruh resolusi layar (desktop, tablet, dan smartphone), didukung navigasi tetap (sticky header) dan menu seluler.
+
+---
+
+## Spesifikasi Teknis
+
+| Komponen | Spesifikasi / Alat |
 | :--- | :--- |
-| **Framework Backend** | Laravel (PHP 8.2+) |
-| **User Interface** | HTML5, CSS3, Bootstrap 5, Bootstrap Icons |
+| **Backend Framework** | Laravel (PHP 8.2+) |
+| **Frontend Framework & Styling** | HTML5, CSS3, Bootstrap 5, Bootstrap Icons |
 | **Data Visualization** | Chart.js |
-| **Database** | SQLite (Production Vercel) / MySQL (Lokal) |
-| **Deployment / Hosting** | Vercel Serverless Platform |
+| **Database** | SQLite (Serverless Production) / MySQL (Pengembangan Lokal) |
+| **Cloud Hosting & Deployment** | Vercel Serverless Architecture |
 | **Version Control** | Git & GitHub |
 
 ---
 
-## 🗄️ Skema Database
+## Struktur Skema Basis Data
 
-Tabel utama: **`bookings`**
+Tabel data utama: **bookings**
 
-| Nama Kolom | Tipe Data | Atribut | Keterangan |
+| Nama Kolom | Tipe Data | Atribut | Deskripsi |
 | :--- | :--- | :--- | :--- |
-| `id` | BigInt | Primary Key, Auto Increment | Identifikasi unik transaksi |
-| `nama_pemesan` | Varchar(255) | Not Null | Nama lengkap pelanggan |
-| `no_hp` | Varchar(50) | Not Null | Nomor kontak/WhatsApp |
-| `jenis_kendaraan` | Enum | 'mobil', 'motor' | Kategori armada kendaraan |
-| `nama_kendaraan` | Varchar(255) | Not Null | Merk/tipe kendaraan |
-| `tanggal_sewa` | Date | Not Null | Tanggal mulai sewa |
-| `lama_sewa` | Integer | Not Null | Durasi sewa (hari) |
-| `catatan` | Text | Nullable | Permintaan/catatan khusus |
-| `status` | Enum | Default 'menunggu' | Status (`menunggu`, `disetujui`, `selesai`, `batal`) |
+| `id` | BigInt | Primary Key, Auto Increment | Identifikasi unik setiap rekaman transaksi |
+| `nama_pemesan` | Varchar(255) | Not Null | Nama lengkap penyewa kendaraan |
+| `no_hp` | Varchar(50) | Not Null | Nomor telepon atau kontak seluler penyewa |
+| `jenis_kendaraan` | Enum | 'mobil', 'motor' | Kategori jenis armada yang disewa |
+| `nama_kendaraan` | Varchar(255) | Not Null | Nama atau tipe model spesifik kendaraan |
+| `tanggal_sewa` | Date | Not Null | Tanggal dimulainya masa sewa |
+| `lama_sewa` | Integer | Not Null | Durasi waktu sewa dalam satuan hari |
+| `catatan` | Text | Nullable | Keterangan atau permintaan khusus dari penyewa |
+| `status` | Enum | Default 'menunggu' | Status transaksi: 'menunggu', 'disetujui', 'selesai', 'batal' |
 
 ---
 
-## 🚀 Panduan Menjalankan Secara Lokal
+## Panduan Instalasi dan Menjalankan Proyek Lokal
 
-1. **Clone Repository:**
+Ikuti langkah-langkah berikut untuk mengoperasikan proyek di lingkungan lokal:
+
+1. **Kloning Repositori:**
    ```bash
    git clone https://github.com/meganelfredaarkananta/Kelompok-5.git
    cd Kelompok-5
    ```
 
-2. **Salin Environment:**
+2. **Pengaturan Variabel Lingkungan:**
    ```bash
    cp .env.example .env
    ```
 
-3. **Install Dependensi:**
+3. **Pemasangan Dependensi:**
    ```bash
    composer install
    npm install
    npm run build
    ```
 
-4. **Generate Key & Migrasi:**
+4. **Inisialisasi Kunci Aplikasi dan Basis Data:**
    ```bash
    php artisan key:generate
    php artisan migrate
    ```
 
-5. **Jalankan Server Lokal:**
+5. **Menjalankan Server Pengembangan:**
    ```bash
    php artisan serve
    ```
-   Buka di browser: `http://127.0.0.1:8000`
+   Aplikasi dapat diakses melalui peramban web pada alamat `http://127.0.0.1:8000`.
 
 ---
 
-## 👥 Anggota Kelompok 5
-* **Megan Elfreda Arkananta**
-* **Ferdian**
-* Serta seluruh anggota tim Kelompok 5
+## Tim Pengembang (Kelompok 5)
+
+* Megan Elfreda Arkananta
+* Ferdian
+* Seluruh Anggota Tim Pengembang Kelompok 5
